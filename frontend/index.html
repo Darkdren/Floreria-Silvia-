@@ -13,6 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -29,6 +30,17 @@
           fontFamily: {
             'title': ['Playfair Display', 'serif'],
             'body': ['Outfit', 'sans-serif'],
+          },
+          animation: {
+            blob: "blob 7s infinite",
+          },
+          keyframes: {
+            blob: {
+              "0%": { transform: "translate(0px, 0px) scale(1)" },
+              "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+              "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+              "100%": { transform: "translate(0px, 0px) scale(1)" },
+            },
           }
         }
       }
@@ -86,6 +98,17 @@
     <div class="hero-overlay absolute inset-0 bg-gradient-to-b from-black/40 to-floreria-dark/90"></div>
     <div
       class="hero-content relative z-10 max-w-3xl px-6 py-10 opacity-0 translate-y-6 animate-[fadeUp_1s_cubic-bezier(0.2,0.8,0.2,1)_forwards]">
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <span
+          class="bg-white/20 backdrop-blur-md text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full border border-white/30 shadow-lg flex items-center gap-2"><i
+            class="fa-solid fa-truck-fast"></i> Envío a todo Ancón y Lima Norte</span>
+        <span
+          class="bg-white/20 backdrop-blur-md text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full border border-white/30 shadow-lg flex items-center gap-2"><i
+            class="fa-solid fa-star"></i> Calidad Premium</span>
+        <span
+          class="bg-white/20 backdrop-blur-md text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full border border-white/30 shadow-lg flex items-center gap-2"><i
+            class="fa-solid fa-leaf"></i> Flores Frescas</span>
+      </div>
       <h1
         class="font-title text-4xl md:text-6xl lg:text-7xl leading-tight mb-5 font-bold tracking-tight text-white drop-shadow-md">
         Detalles que florecen emociones</h1>
@@ -94,15 +117,82 @@
     </div>
   </section>
 
-  <main class="catalog-container pt-20 px-4 md:px-8 max-w-7xl mx-auto min-h-[50vh]" id="catalogContainer">
+  <section class="categories-section py-20 px-6 max-w-7xl mx-auto" id="categorias" data-aos="fade-up">
+    <div class="text-center mb-12">
+      <h2 class="font-title text-3xl md:text-5xl text-floreria-rose font-bold mb-4">Colecciones Exclusivas</h2>
+      <p class="text-floreria-dark/70 font-light text-lg max-w-2xl mx-auto">Selecciona la ocasión o estilo perfecto para
+        tu sorpresa.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <a href="#catalogContainer"
+        class="group relative h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all block"
+        data-aos="fade-up" data-aos-delay="100">
+        <img src="https://valentinanero.es/wp-content/uploads/2022/11/ramos-de-novia-valentina-nero.jpg"
+          alt="Ramos de Rosas"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <h3 class="font-title text-2xl text-white font-bold mb-1">Ramos Clásicos</h3>
+          <p class="text-white/80 text-sm font-light">Elegancia atemporal</p>
+        </div>
+      </a>
+
+      <a href="#catalogContainer"
+        class="group relative h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all block"
+        data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=600&auto=format&fit=crop"
+          alt="Cajas Florales"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <h3 class="font-title text-2xl text-white font-bold mb-1">Cajas Florales</h3>
+          <p class="text-white/80 text-sm font-light">Para un impacto moderno</p>
+        </div>
+      </a>
+
+      <a href="#catalogContainer"
+        class="group relative h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all block"
+        data-aos="fade-up" data-aos-delay="300">
+        <img src="https://i.pinimg.com/736x/c1/29/94/c129947de625f9a3b5722cde1e7060a0.jpg" alt="Aniversario"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <h3 class="font-title text-2xl text-white font-bold mb-1">Aniversario</h3>
+          <p class="text-white/80 text-sm font-light">Celebra el amor</p>
+        </div>
+      </a>
+
+      <a href="#catalogContainer"
+        class="group relative h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all block"
+        data-aos="fade-up" data-aos-delay="400">
+        <img src="https://floreriasb.com.pe/wp-content/uploads/2022/08/oso-grande.jpg" alt="Peluches"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <h3 class="font-title text-2xl text-white font-bold mb-1">Complementos</h3>
+          <p class="text-white/80 text-sm font-light">Peluches y más</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <main class="catalog-container pt-8 px-4 md:px-8 max-w-7xl mx-auto min-h-[50vh]" id="catalogContainer"
+    data-aos="fade-up">
     <div
       class="loading-box border-2 border-dashed border-floreria-rose rounded-xl p-8 text-center text-floreria-dark font-bold text-lg animate-pulse">
       Cargando catalogo...</div>
   </main>
 
   <section
-    class="budget-lab max-w-6xl mx-auto mt-20 mb-20 px-6 py-12 md:p-16 bg-white rounded-2xl shadow-sm border border-floreria-muted relative overflow-hidden"
-    id="budget-lab">
+    class="budget-lab max-w-6xl mx-auto mt-20 mb-20 px-6 py-12 md:p-16 bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl border border-white relative overflow-hidden"
+    id="budget-lab" data-aos="fade-up">
+    <div
+      class="absolute top-0 -left-10 w-72 h-72 bg-floreria-rose/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob">
+    </div>
+    <div
+      class="absolute bottom-0 -right-10 w-72 h-72 bg-[#E8DED8] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"
+      style="animation-delay: 2s;"></div>
     <div class="budget-header text-center mb-12 relative z-10">
       <h2 class="font-title text-3xl md:text-5xl text-floreria-rose font-bold mb-4">Creador por presupuesto</h2>
       <p class="text-floreria-dark/70 font-light text-lg max-w-2xl mx-auto">Elige monto y ocasion para recibir
@@ -147,7 +237,7 @@
 
   <section
     class="custom-order max-w-6xl mx-auto mb-24 px-6 py-16 bg-white rounded-2xl shadow-sm border border-floreria-muted text-center"
-    id="arma-pedido">
+    id="arma-pedido" data-aos="fade-up">
     <h2 class="font-title text-3xl md:text-5xl text-floreria-rose font-bold mb-4">Arma tu pedido ideal</h2>
     <p class="text-floreria-dark/70 font-light text-lg max-w-2xl mx-auto mb-16">Comparte tu idea, lo diseñamos y lo
       entregamos listo para sorprender.</p>
@@ -210,6 +300,58 @@
       id="customOrderWspBtn">
       <i class="fa-brands fa-whatsapp text-lg"></i> Diseñar mi arreglo
     </button>
+  </section>
+
+  <section
+    class="flower-care relative py-28 bg-[url('https://images.unsplash.com/photo-1457089328109-e5d9f05f0e10?q=80&w=1600&auto=format&fit=crop')] bg-fixed bg-center bg-cover border-y border-floreria-muted"
+    data-aos="fade-up">
+    <div class="absolute inset-0 bg-floreria-dark/85 backdrop-blur-sm"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+      <h2 class="font-title text-3xl md:text-5xl font-bold mb-4 text-floreria-cream" data-aos="fade-up">¿Cómo cuidar tus
+        flores?</h2>
+      <p class="text-floreria-cream/80 font-light text-lg mb-14 max-w-2xl mx-auto" data-aos="fade-up"
+        data-aos-delay="100">Sigue estos sencillos consejos para que tu arreglo luzca fresco y hermoso por mucho más
+        tiempo.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          class="care-card bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:-translate-y-2 hover:bg-white/15 transition-all duration-300"
+          data-aos="fade-up" data-aos-delay="200">
+          <div class="w-full h-40 mb-6 overflow-hidden rounded-xl shadow-lg shadow-black/20">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7UTgfavTFkqD9UUtoGh_4rMjhw-1Q__oOA&s"
+              alt="Agua Fresca" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+          </div>
+          <h3 class="font-title text-xl font-bold mb-3">Agua Fresca</h3>
+          <p class="text-sm font-light text-white/80">Cambia el agua cada 2 días y limpia el florero. Usa agua a
+            temperatura ambiente.</p>
+        </div>
+
+        <div
+          class="care-card bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:-translate-y-2 hover:bg-white/15 transition-all duration-300"
+          data-aos="fade-up" data-aos-delay="300">
+          <div class="w-full h-40 mb-6 overflow-hidden rounded-xl shadow-lg shadow-black/20">
+            <img src="https://i.pinimg.com/736x/7a/ad/84/7aad84b9a2832952c62db02e566f69a0.jpg" alt="Corte Diagonal"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+          </div>
+          <h3 class="font-title text-xl font-bold mb-3">Corte Diagonal</h3>
+          <p class="text-sm font-light text-white/80">Corta 2cm de los tallos en ángulo de 45° al cambiar el agua para
+            mejorar la absorción.</p>
+        </div>
+
+        <div
+          class="care-card bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:-translate-y-2 hover:bg-white/15 transition-all duration-300"
+          data-aos="fade-up" data-aos-delay="400">
+          <div class="w-full h-40 mb-6 overflow-hidden rounded-xl shadow-lg shadow-black/20">
+            <img
+              src="https://static.wixstatic.com/media/b4df8d_8abb0158df884446b45a03332006bcea~mv2.jpg/v1/fill/w_640,h_620,al_b,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b4df8d_8abb0158df884446b45a03332006bcea~mv2.jpg"
+              alt="Luz Indirecta" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+          </div>
+          <h3 class="font-title text-xl font-bold mb-3">Luz Indirecta</h3>
+          <p class="text-sm font-light text-white/80">Mantén tus flores en un lugar fresco, lejos de la luz solar
+            directa y fuentes de calor.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer id="visitanos" class="bg-[#112A1F] text-white py-20 px-6 relative mt-12">
@@ -392,6 +534,15 @@
     </div>
   </div>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      offset: 50,
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+  </script>
   <script src="/js/app.js" defer></script>
 </body>
 

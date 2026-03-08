@@ -8,7 +8,13 @@
         slug: 'rosas',
         name: 'Rosas',
         description: 'El clasico infalible para expresar amor y pasion en cualquier ocasion.',
-        imageId: '1559564484-e48b3e040ff4'
+        imageId: '1559564484-e48b3e040ff4',
+        // EJEMPLO: Puedes agregar tus propias imagenes para la portada de la categoria y sus productos:
+        imageUrl: 'https://www.publicdomainpictures.net/pictures/230000/velka/red-roses-1499046145x7M.jpg',
+        // productImages: [
+        //   'https://urldetuimagen.com/rosa-especial-1.jpg',
+        //   'https://urldetuimagen.com/rosa-especial-2.jpg'
+        // ]
       },
       {
         slug: 'girasoles',
@@ -147,11 +153,13 @@ function createSeedData() {
 
       const products = Array.from({ length: 6 }).map((_, productIndex) => {
         const number = productIndex + 1;
+        const customImage = subcategory.productImages && subcategory.productImages[productIndex];
+
         return {
           sku: `${subcategory.slug}-${number}`,
           name: `${subcategory.name} Especial ${number}`,
           price: 25 + currentCategoryIndex * 2 + productIndex * 4,
-          image: `https://images.unsplash.com/photo-${subcategory.imageId}?w=500&q=80&auto=format&fit=crop&sig=${number}`
+          image: customImage || `https://images.unsplash.com/photo-${subcategory.imageId}?w=500&q=80&auto=format&fit=crop&sig=${number}`
         };
       });
 
@@ -159,7 +167,7 @@ function createSeedData() {
         slug: subcategory.slug,
         name: subcategory.name,
         description: subcategory.description,
-        image: `https://images.unsplash.com/photo-${subcategory.imageId}?w=900&q=80&auto=format&fit=crop`,
+        image: subcategory.imageUrl || `https://images.unsplash.com/photo-${subcategory.imageId}?w=900&q=80&auto=format&fit=crop`,
         products
       };
     });
