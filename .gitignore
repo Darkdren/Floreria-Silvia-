@@ -1,0 +1,8 @@
+﻿node_modules/
+.env
+npm-debug.log*
+backend/data/*.sqlite
+backend/data/*.sqlite-shm
+backend/data/*.sqlite-wal
+coverage/
+.DS_Store

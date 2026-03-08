@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Floreria Silvia: Ramos, arreglos y detalles para sorprender.">
+  <title>Floreria Silvia | Detalles que florecen emociones</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar" aria-hidden="true">
+    <div class="sidebar-header">
+      <span class="sidebar-title">Menu</span>
+      <button type="button" class="close-btn" id="closeSidebarBtn" aria-label="Cerrar menu">x</button>
+    </div>
+    <nav class="sidebar-menu" id="sidebarMenuContent"></nav>
+  </aside>
+
+  <header>
+    <button type="button" class="icon-btn hamburger" id="openSidebarBtn" aria-label="Abrir menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="logo">Floreria Silvia</div>
+    <div class="header-icons">
+      <button type="button" class="icon-btn" id="searchToggleBtn" aria-label="Buscar productos">
+        <i class="fa-solid fa-search"></i>
+      </button>
+    </div>
+  </header>
+
+  <div id="searchContainer" class="search-container">
+    <label class="sr-only" for="searchInput">Buscar producto</label>
+    <input type="text" id="searchInput" placeholder="Buscar rosas, claveles, peluches o precios...">
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Detalles que florecen emociones</h1>
+      <p>Ramos, arreglos florales y complementos para sorprender a quien mas quieres.</p>
+    </div>
+  </section>
+
+  <main class="catalog-container" id="catalogContainer">
+    <div class="loading-box">Cargando catalogo...</div>
+  </main>
+
+  <section class="budget-lab" id="budget-lab">
+    <div class="budget-header">
+      <h2>Creador por presupuesto</h2>
+      <p>Elige monto y ocasion para recibir combinaciones sugeridas.</p>
+    </div>
+
+    <div class="budget-controls">
+      <div class="field-group">
+        <label for="budgetSelect">Presupuesto</label>
+        <select id="budgetSelect">
+          <option value="60">S/ 60</option>
+          <option value="90">S/ 90</option>
+          <option value="120" selected>S/ 120</option>
+          <option value="150">S/ 150</option>
+          <option value="200">S/ 200</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="occasionSelect">Ocasion</label>
+        <select id="occasionSelect">
+          <option value="aniversario">Aniversario</option>
+          <option value="cumpleanos">Cumpleanos</option>
+          <option value="agradecimiento">Agradecimiento</option>
+          <option value="sorpresa" selected>Sorpresa</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn-main" id="getRecommendationsBtn">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        Sugerir combinaciones
+      </button>
+    </div>
+
+    <div class="recommendations" id="recommendationsList"></div>
+  </section>
+
+  <section class="custom-order" id="arma-pedido">
+    <h2>Arma tu pedido ideal</h2>
+    <p>Comparte tu idea, lo diseñamos y lo entregamos listo para sorprender.</p>
+
+    <div class="steps-container" id="stepsAnim">
+      <article class="step-card">
+        <div class="step-media">
+          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80" alt="Paso 1: cliente enviando referencia de ramo">
+          <span class="step-badge">01</span>
+        </div>
+        <h3>Muestranos tu referencia</h3>
+        <p>Nos compartes una foto, estilo o idea base de tu regalo.</p>
+      </article>
+      <div class="step-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+
+      <article class="step-card">
+        <div class="step-media">
+          <img src="https://images.unsplash.com/photo-1487073240288-854ac7f1bb3c?auto=format&fit=crop&w=900&q=80" alt="Paso 2: florista diseñando arreglo personalizado">
+          <span class="step-badge">02</span>
+        </div>
+        <h3>Diseño personalizado</h3>
+        <p>Armamos la propuesta con flores y complementos según tu presupuesto.</p>
+      </article>
+      <div class="step-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+
+      <article class="step-card">
+        <div class="step-media">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80" alt="Paso 3: entrega final del arreglo">
+          <span class="step-badge">03</span>
+        </div>
+        <h3>Entrega y sorpresa</h3>
+        <p>Recibes tu arreglo final listo para celebrar y emocionar.</p>
+      </article>
+    </div>
+
+    <button type="button" class="btn-main" id="customOrderWspBtn">
+      Diseñar mi arreglo
+    </button>
+  </section>
+
+  <footer id="visitanos">
+    <div class="footer-grid">
+      <div class="footer-info">
+        <h3>Floreria Silvia</h3>
+        <p class="footer-phrase">"Todos regresan y Cristo bendiga sus vidas"</p>
+        <div class="footer-address">
+          <i class="fa-solid fa-location-dot"></i><br>
+          Avenida Los Arquitectos, Ancon<br>
+          Lima 15122, Peru
+        </div>
+        <p class="social-title">Siguenos en redes:</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=-11.8142333,-77.1300185&z=17&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de Floreria Silvia en Ancon, Lima"
+          ></iframe>
+        </div>
+        <a
+          class="map-link"
+          href="https://maps.app.goo.gl/X231o7U1ym8UM3rH8?g_st=iwb"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver ubicacion en Google Maps
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen">x</button>
+      <img src="" alt="Imagen del producto" id="lightboxImg">
+    </div>
+  </div>
+
+  <a href="#" class="wsp-float" id="wspBtn" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <div class="cart-bar" id="cartBar">
+    <div>
+      <div class="cart-count" id="cartCount">0 items</div>
+      <div class="cart-total" id="cartTotal">S/ 0.00</div>
+    </div>
+    <button type="button" class="btn-pedir-cart" id="openCheckoutBtn">PEDIR AHORA</button>
+  </div>
+
+  <div class="order-modal" id="orderModal" aria-hidden="true">
+    <div class="order-modal-content">
+      <div class="order-modal-header">
+        <h3>Completar pedido</h3>
+        <button type="button" class="close-btn" id="closeOrderModalBtn" aria-label="Cerrar formulario">x</button>
+      </div>
+
+      <form id="orderForm" class="order-form">
+        <div class="field-group">
+          <label for="customerName">Nombre</label>
+          <input id="customerName" name="customerName" type="text" required minlength="2">
+        </div>
+
+        <div class="field-group two-cols">
+          <div>
+            <label for="phone">Telefono</label>
+            <input id="phone" name="phone" type="tel" required pattern="[0-9+]{7,15}">
+          </div>
+          <div>
+            <label for="deliveryDate">Fecha de entrega</label>
+            <input id="deliveryDate" name="deliveryDate" type="date" required>
+          </div>
+        </div>
+
+        <div class="field-group two-cols">
+          <div>
+            <label for="district">Distrito</label>
+            <input id="district" name="district" type="text" required minlength="2">
+          </div>
+          <div>
+            <label for="address">Direccion</label>
+            <input id="address" name="address" type="text" required minlength="5">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="note">Dedicatoria (opcional)</label>
+          <textarea id="note" name="note" rows="3" placeholder="Indicaciones para entrega"></textarea>
+        </div>
+
+        <p id="orderStatus" class="order-status" aria-live="polite"></p>
+
+        <div class="order-actions">
+          <button type="button" class="btn-secondary" id="cancelOrderBtn">Cancelar</button>
+          <button type="submit" class="btn-main" id="submitOrderBtn">Confirmar y abrir WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/app.js" defer></script>
+</body>
+</html>
