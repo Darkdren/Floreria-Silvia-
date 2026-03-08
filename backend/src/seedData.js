@@ -61,8 +61,8 @@
       },
       {
         slug: 'limpieza',
-        name: 'Flores de Limpieza',
-        description: 'Hierbas y flores tradicionales para purificar y renovar energias.',
+        name: 'Flores de Condolencia',
+        description: 'Arreglos respetuosos para expresar apoyo y simpatía en momentos difíciles.',
         imageId: '1601004890684-d8cbf643f5f2'
       }
     ]
@@ -94,7 +94,7 @@
   },
   {
     slug: 'jardin-hogar',
-    name: 'Jardin y Hogar',
+    name: 'Jardín y Hogar',
     description: 'Productos para decorar y cultivar en casa.',
     subcategories: [
       {

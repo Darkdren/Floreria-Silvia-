@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,60 +9,112 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'floreria-rose': '#8B2252',
+            'floreria-rose-hover': '#a62962',
+            'floreria-dark': '#2C1820',
+            'floreria-cream': '#FAF7F5',
+            'floreria-muted': '#E8DED8',
+          },
+          fontFamily: {
+            'title': ['Playfair Display', 'serif'],
+            'body': ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <aside class="sidebar" id="sidebar" aria-hidden="true">
-    <div class="sidebar-header">
-      <span class="sidebar-title">Menu</span>
-      <button type="button" class="close-btn" id="closeSidebarBtn" aria-label="Cerrar menu">x</button>
+<body class="font-body bg-floreria-cream text-floreria-dark antialiased pb-24 overflow-x-hidden">
+  <div
+    class="sidebar-overlay fixed inset-0 bg-black/60 z-[2000] opacity-0 invisible transition-all duration-400 backdrop-blur-sm"
+    id="sidebarOverlay"></div>
+
+  <aside
+    class="sidebar fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white z-[2001] -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] flex flex-col shadow-2xl"
+    id="sidebar" aria-hidden="true">
+    <div class="sidebar-header p-8 pb-6 flex justify-between items-center border-b border-floreria-muted">
+      <span
+        class="sidebar-title font-title font-semibold text-lg text-floreria-dark tracking-widest uppercase">Menu</span>
+      <button type="button"
+        class="close-btn text-2xl text-gray-500 w-10 h-10 flex items-center justify-center rounded-full hover:bg-floreria-cream hover:text-floreria-rose transition-colors"
+        id="closeSidebarBtn" aria-label="Cerrar menu">×</button>
     </div>
-    <nav class="sidebar-menu" id="sidebarMenuContent"></nav>
+    <nav class="sidebar-menu py-4 overflow-y-auto flex-1 flex flex-col" id="sidebarMenuContent"></nav>
   </aside>
 
-  <header>
-    <button type="button" class="icon-btn hamburger" id="openSidebarBtn" aria-label="Abrir menu">
+  <header
+    class="sticky top-0 z-[1000] flex items-center justify-between h-20 px-6 lg:px-12 bg-white/95 backdrop-blur-md border-b border-floreria-muted">
+    <button type="button"
+      class="icon-btn hamburger text-floreria-dark text-xl w-11 h-11 flex items-center justify-center rounded-full hover:bg-floreria-cream hover:text-floreria-rose transition-colors"
+      id="openSidebarBtn" aria-label="Abrir menu">
       <i class="fa-solid fa-bars"></i>
     </button>
-    <div class="logo">Floreria Silvia</div>
-    <div class="header-icons">
-      <button type="button" class="icon-btn" id="searchToggleBtn" aria-label="Buscar productos">
+    <div
+      class="logo font-title text-2xl md:text-3xl font-bold text-floreria-rose text-center flex-1 tracking-wider uppercase">
+      Floreria Silvia</div>
+    <div class="header-icons flex gap-2">
+      <button type="button"
+        class="icon-btn text-floreria-dark text-xl w-11 h-11 flex items-center justify-center rounded-full hover:bg-floreria-cream hover:text-floreria-rose transition-colors"
+        id="searchToggleBtn" aria-label="Buscar productos">
         <i class="fa-solid fa-search"></i>
       </button>
     </div>
   </header>
 
-  <div id="searchContainer" class="search-container">
+  <div id="searchContainer"
+    class="search-container hidden fixed top-20 left-0 w-full z-[999] bg-white p-4 lg:px-12 border-b border-floreria-muted shadow-sm">
     <label class="sr-only" for="searchInput">Buscar producto</label>
-    <input type="text" id="searchInput" placeholder="Buscar rosas, claveles, peluches o precios...">
+    <input type="text" id="searchInput"
+      class="w-full px-6 py-4 border border-gray-300 rounded-full outline-none font-light text-floreria-dark bg-floreria-cream focus:border-floreria-rose focus:ring-2 focus:ring-floreria-rose/20 transition-all placeholder:text-gray-400"
+      placeholder="Buscar rosas, claveles, peluches o precios...">
   </div>
 
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Detalles que florecen emociones</h1>
-      <p>Ramos, arreglos florales y complementos para sorprender a quien mas quieres.</p>
+  <section
+    class="hero relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center text-center text-white bg-[url('https://images.unsplash.com/photo-1508611440026-6218e76c1dc1?q=80&w=1600&auto=format&fit=crop')] bg-center bg-cover">
+    <div class="hero-overlay absolute inset-0 bg-gradient-to-b from-black/40 to-floreria-dark/90"></div>
+    <div
+      class="hero-content relative z-10 max-w-3xl px-6 py-10 opacity-0 translate-y-6 animate-[fadeUp_1s_cubic-bezier(0.2,0.8,0.2,1)_forwards]">
+      <h1
+        class="font-title text-4xl md:text-6xl lg:text-7xl leading-tight mb-5 font-bold tracking-tight text-white drop-shadow-md">
+        Detalles que florecen emociones</h1>
+      <p class="text-lg md:text-xl font-light max-w-xl mx-auto text-white/90 tracking-wide drop-shadow">Ramos, arreglos
+        florales y complementos para sorprender a quien mas quieres.</p>
     </div>
   </section>
 
-  <main class="catalog-container" id="catalogContainer">
-    <div class="loading-box">Cargando catalogo...</div>
+  <main class="catalog-container pt-20 px-4 md:px-8 max-w-7xl mx-auto min-h-[50vh]" id="catalogContainer">
+    <div
+      class="loading-box border-2 border-dashed border-floreria-rose rounded-xl p-8 text-center text-floreria-dark font-bold text-lg animate-pulse">
+      Cargando catalogo...</div>
   </main>
 
-  <section class="budget-lab" id="budget-lab">
-    <div class="budget-header">
-      <h2>Creador por presupuesto</h2>
-      <p>Elige monto y ocasion para recibir combinaciones sugeridas.</p>
+  <section
+    class="budget-lab max-w-6xl mx-auto mt-20 mb-20 px-6 py-12 md:p-16 bg-white rounded-2xl shadow-sm border border-floreria-muted relative overflow-hidden"
+    id="budget-lab">
+    <div class="budget-header text-center mb-12 relative z-10">
+      <h2 class="font-title text-3xl md:text-5xl text-floreria-rose font-bold mb-4">Creador por presupuesto</h2>
+      <p class="text-floreria-dark/70 font-light text-lg max-w-2xl mx-auto">Elige monto y ocasion para recibir
+        combinaciones sugeridas.</p>
     </div>
 
-    <div class="budget-controls">
-      <div class="field-group">
-        <label for="budgetSelect">Presupuesto</label>
-        <select id="budgetSelect">
+    <div class="budget-controls grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 items-end relative z-10">
+      <div class="field-group flex flex-col gap-2">
+        <label for="budgetSelect"
+          class="font-semibold text-floreria-dark text-sm uppercase tracking-wider">Presupuesto</label>
+        <select id="budgetSelect"
+          class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose outline-none text-floreria-dark transition-all appearance-none cursor-pointer">
           <option value="60">S/ 60</option>
           <option value="90">S/ 90</option>
           <option value="120" selected>S/ 120</option>
@@ -70,168 +123,270 @@
         </select>
       </div>
 
-      <div class="field-group">
-        <label for="occasionSelect">Ocasion</label>
-        <select id="occasionSelect">
+      <div class="field-group flex flex-col gap-2">
+        <label for="occasionSelect"
+          class="font-semibold text-floreria-dark text-sm uppercase tracking-wider">Ocasión</label>
+        <select id="occasionSelect"
+          class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose outline-none text-floreria-dark transition-all appearance-none cursor-pointer">
           <option value="aniversario">Aniversario</option>
-          <option value="cumpleanos">Cumpleanos</option>
+          <option value="cumpleanos">Cumpleaños</option>
           <option value="agradecimiento">Agradecimiento</option>
           <option value="sorpresa" selected>Sorpresa</option>
         </select>
       </div>
 
-      <button type="button" class="btn-main" id="getRecommendationsBtn">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-        Sugerir combinaciones
+      <button type="button"
+        class="btn-main w-full py-4 bg-floreria-dark text-white rounded-lg font-bold text-sm tracking-wider uppercase shadow-lg hover:bg-black transition-colors flex items-center justify-center gap-3 h-[52px]"
+        id="getRecommendationsBtn">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Sugerir
       </button>
     </div>
 
-    <div class="recommendations" id="recommendationsList"></div>
+    <div class="recommendations grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10" id="recommendationsList"></div>
   </section>
 
-  <section class="custom-order" id="arma-pedido">
-    <h2>Arma tu pedido ideal</h2>
-    <p>Comparte tu idea, lo diseñamos y lo entregamos listo para sorprender.</p>
+  <section
+    class="custom-order max-w-6xl mx-auto mb-24 px-6 py-16 bg-white rounded-2xl shadow-sm border border-floreria-muted text-center"
+    id="arma-pedido">
+    <h2 class="font-title text-3xl md:text-5xl text-floreria-rose font-bold mb-4">Arma tu pedido ideal</h2>
+    <p class="text-floreria-dark/70 font-light text-lg max-w-2xl mx-auto mb-16">Comparte tu idea, lo diseñamos y lo
+      entregamos listo para sorprender.</p>
 
-    <div class="steps-container" id="stepsAnim">
-      <article class="step-card">
-        <div class="step-media">
-          <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=80" alt="Paso 1: cliente enviando referencia de ramo">
-          <span class="step-badge">01</span>
+    <div class="steps-container grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12" id="stepsAnim">
+      <article
+        class="step-card bg-floreria-cream rounded-2xl overflow-hidden border border-transparent hover:border-floreria-rose transition-colors flex flex-col text-center group shadow-sm hover:shadow-xl">
+        <div class="w-full h-48 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1502977249166-e81148928f13?w=600&q=80&auto=format&fit=crop"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            alt="Muestra tu referencia" loading="lazy">
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
         </div>
-        <h3>Muestranos tu referencia</h3>
-        <p>Nos compartes una foto, estilo o idea base de tu regalo.</p>
+        <div class="p-8 pt-10 flex flex-col items-center relative w-full flex-1">
+          <span
+            class="step-badge absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-floreria-dark text-white font-bold flex items-center justify-center text-xl group-hover:bg-floreria-rose transition-colors shadow-lg border-4 border-floreria-cream z-10">1</span>
+          <h3 class="font-title text-2xl text-floreria-dark font-bold mb-3">Muestra tu referencia</h3>
+          <p class="text-floreria-dark/70 font-light text-sm leading-relaxed">Comparte una foto o estilo de tu regalo
+            ideal.</p>
+        </div>
       </article>
-      <div class="step-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
 
-      <article class="step-card">
-        <div class="step-media">
-          <img src="https://images.unsplash.com/photo-1487073240288-854ac7f1bb3c?auto=format&fit=crop&w=900&q=80" alt="Paso 2: florista diseñando arreglo personalizado">
-          <span class="step-badge">02</span>
+      <article
+        class="step-card bg-floreria-cream rounded-2xl overflow-hidden border border-transparent hover:border-floreria-rose transition-colors flex flex-col text-center group shadow-sm hover:shadow-xl">
+        <div class="w-full h-48 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=600&q=80&auto=format&fit=crop"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            alt="Diseño a medida" loading="lazy">
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
         </div>
-        <h3>Diseño personalizado</h3>
-        <p>Armamos la propuesta con flores y complementos según tu presupuesto.</p>
+        <div class="p-8 pt-10 flex flex-col items-center relative w-full flex-1">
+          <span
+            class="step-badge absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-floreria-dark text-white font-bold flex items-center justify-center text-xl group-hover:bg-floreria-rose transition-colors shadow-lg border-4 border-floreria-cream z-10">2</span>
+          <h3 class="font-title text-2xl text-floreria-dark font-bold mb-3">Diseño a medida</h3>
+          <p class="text-floreria-dark/70 font-light text-sm leading-relaxed">Armamos la propuesta con flores premium.
+          </p>
+        </div>
       </article>
-      <div class="step-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
 
-      <article class="step-card">
-        <div class="step-media">
-          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80" alt="Paso 3: entrega final del arreglo">
-          <span class="step-badge">03</span>
+      <article
+        class="step-card bg-floreria-cream rounded-2xl overflow-hidden border border-transparent hover:border-floreria-rose transition-colors flex flex-col text-center group shadow-sm hover:shadow-xl">
+        <div class="w-full h-48 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1583226952781-8fb2f88b3f12?w=600&q=80&auto=format&fit=crop"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            alt="Entrega sorpresa" loading="lazy">
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
         </div>
-        <h3>Entrega y sorpresa</h3>
-        <p>Recibes tu arreglo final listo para celebrar y emocionar.</p>
+        <div class="p-8 pt-10 flex flex-col items-center relative w-full flex-1">
+          <span
+            class="step-badge absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-floreria-dark text-white font-bold flex items-center justify-center text-xl group-hover:bg-floreria-rose transition-colors shadow-lg border-4 border-floreria-cream z-10">3</span>
+          <h3 class="font-title text-2xl text-floreria-dark font-bold mb-3">Entrega sorpresa</h3>
+          <p class="text-floreria-dark/70 font-light text-sm leading-relaxed">Recibe tu arreglo listo para emocionar.
+          </p>
+        </div>
       </article>
     </div>
 
-    <button type="button" class="btn-main" id="customOrderWspBtn">
-      Diseñar mi arreglo
+    <button type="button"
+      class="btn-main inline-flex items-center gap-3 px-8 py-4 bg-floreria-rose text-white rounded-full font-bold text-sm tracking-wider uppercase shadow-lg shadow-floreria-rose/30 hover:bg-floreria-rose-hover hover:shadow-xl hover:-translate-y-0.5 transition-all"
+      id="customOrderWspBtn">
+      <i class="fa-brands fa-whatsapp text-lg"></i> Diseñar mi arreglo
     </button>
   </section>
 
-  <footer id="visitanos">
-    <div class="footer-grid">
-      <div class="footer-info">
-        <h3>Floreria Silvia</h3>
-        <p class="footer-phrase">"Todos regresan y Cristo bendiga sus vidas"</p>
-        <div class="footer-address">
-          <i class="fa-solid fa-location-dot"></i><br>
+  <footer id="visitanos" class="bg-[#112A1F] text-white py-20 px-6 relative mt-12">
+    <div class="footer-grid grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto gap-16 items-center">
+      <div class="footer-info text-center md:text-left">
+        <h3 class="font-title text-4xl md:text-6xl text-white mb-4">Floreria Silvia</h3>
+        <p class="footer-phrase font-light text-floreria-muted/80 mb-8 text-lg tracking-wide">"Todos regresan y Cristo
+          bendiga sus vidas"</p>
+        <div class="footer-address text-base leading-relaxed text-white/80 font-light">
+          <i class="fa-solid fa-location-dot text-floreria-rose mr-2"></i><br>
           Avenida Los Arquitectos, Ancon<br>
           Lima 15122, Peru
         </div>
-        <p class="social-title">Siguenos en redes:</p>
-        <div class="social-icons">
-          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <p class="social-title text-sm font-medium text-floreria-muted/60 uppercase tracking-widest mt-10 mb-4">Siguenos
+          en redes:</p>
+        <div class="social-icons flex justify-center md:justify-start gap-4">
+          <a href="#" aria-label="Facebook"
+            class="w-12 h-12 rounded-full bg-white/5 text-white flex items-center justify-center text-xl hover:bg-white hover:text-[#112A1F] hover:-translate-y-1 transition-all"><i
+              class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"
+            class="w-12 h-12 rounded-full bg-white/5 text-white flex items-center justify-center text-xl hover:bg-white hover:text-[#112A1F] hover:-translate-y-1 transition-all"><i
+              class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"
+            class="w-12 h-12 rounded-full bg-white/5 text-white flex items-center justify-center text-xl hover:bg-white hover:text-[#112A1F] hover:-translate-y-1 transition-all"><i
+              class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
-      <div class="map-wrap">
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps?q=-11.8142333,-77.1300185&z=17&output=embed"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa de Floreria Silvia en Ancon, Lima"
-          ></iframe>
+      <div class="map-wrap group">
+        <div
+          class="map-container w-full aspect-video md:aspect-[4/3] rounded-2xl overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
+          <iframe src="https://www.google.com/maps?q=-11.8142333,-77.1300185&z=17&output=embed" loading="lazy"
+            allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa de Floreria Silvia en Ancon, Lima"
+            class="w-full h-full border-none filter grayscale contrast-125"></iframe>
         </div>
-        <a
-          class="map-link"
-          href="https://maps.app.goo.gl/X231o7U1ym8UM3rH8?g_st=iwb"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="map-link mt-4 inline-block text-sm text-floreria-muted hover:text-white underline decoration-floreria-rose underline-offset-4 transition-colors"
+          href="https://maps.app.goo.gl/X231o7U1ym8UM3rH8?g_st=iwb" target="_blank" rel="noopener noreferrer">
           Ver ubicacion en Google Maps
         </a>
       </div>
     </div>
   </footer>
 
-  <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
-    <div class="lightbox-content">
-      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen">x</button>
-      <img src="" alt="Imagen del producto" id="lightboxImg">
+  <div class="lightbox-overlay fixed inset-0 bg-black/90 z-[4000] hidden items-center justify-center backdrop-blur-md"
+    id="lightboxOverlay" aria-hidden="true">
+    <div class="lightbox-content relative max-w-[90vw] max-h-[85vh]">
+      <button type="button"
+        class="lightbox-close absolute -top-12 right-0 text-white text-4xl hover:text-floreria-rose transition-colors"
+        id="lightboxClose" aria-label="Cerrar imagen">×</button>
+      <img src="" alt="Imagen del producto" id="lightboxImg" class="max-w-full max-h-[85vh] object-contain rounded-lg">
     </div>
   </div>
 
-  <a href="#" class="wsp-float" id="wspBtn" aria-label="WhatsApp">
+  <a href="#"
+    class="wsp-float fixed bottom-6 right-6 z-[1001] bg-[#25d366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg shadow-[#25d366]/30 hover:scale-110 transition-transform duration-300"
+    id="wspBtn" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <div class="cart-bar" id="cartBar">
+  <div
+    class="cart-bar fixed bottom-0 left-0 w-full bg-white border-t border-floreria-muted z-[2000] px-6 py-4 flex justify-between items-center translate-y-full transition-transform duration-400 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]"
+    id="cartBar">
     <div>
-      <div class="cart-count" id="cartCount">0 items</div>
-      <div class="cart-total" id="cartTotal">S/ 0.00</div>
+      <div class="cart-count text-sm text-gray-500" id="cartCount">0 items</div>
+      <div class="cart-total text-2xl font-bold text-floreria-rose" id="cartTotal">S/ 0.00</div>
     </div>
-    <button type="button" class="btn-pedir-cart" id="openCheckoutBtn">PEDIR AHORA</button>
+    <button type="button"
+      class="btn-pedir-cart bg-floreria-rose text-white px-8 py-3 rounded-full font-bold text-sm tracking-wider uppercase shadow-lg shadow-floreria-rose/30 hover:bg-floreria-rose-hover transition-colors"
+      id="openCheckoutBtn">PEDIR AHORA</button>
   </div>
 
-  <div class="order-modal" id="orderModal" aria-hidden="true">
-    <div class="order-modal-content">
-      <div class="order-modal-header">
-        <h3>Completar pedido</h3>
-        <button type="button" class="close-btn" id="closeOrderModalBtn" aria-label="Cerrar formulario">x</button>
+  <div
+    class="cart-sidebar fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-[0_0_40px_rgba(0,0,0,0.1)] z-[3000] translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] flex flex-col"
+    id="cartSidebar" aria-hidden="true">
+    <div class="cart-sidebar-header flex justify-between items-center p-6 border-b border-floreria-muted bg-[#FAF7F5]">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-cart-shopping text-floreria-rose text-2xl"></i>
+        <h3 class="text-2xl font-title text-floreria-dark font-bold">Tu Carrito</h3>
+      </div>
+      <button type="button"
+        class="close-btn text-gray-400 hover:text-floreria-rose text-2xl font-light w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-colors"
+        id="closeCartSidebarBtn" aria-label="Cerrar carrito">×</button>
+    </div>
+
+    <div class="cart-items-container flex-1 overflow-y-auto p-6" id="cartItemsList">
+      <!-- Cart items will be dynamically injected here -->
+    </div>
+
+    <div class="cart-sidebar-footer p-6 border-t border-floreria-muted bg-white">
+      <div class="flex justify-between items-center mb-6">
+        <span class="text-lg font-medium text-floreria-dark">Subtotal</span>
+        <span class="text-2xl font-bold text-floreria-rose" id="cartSidebarTotal">S/ 0.00</span>
+      </div>
+      <button type="button"
+        class="w-full bg-floreria-rose text-white py-4 rounded-xl font-bold text-sm tracking-wider uppercase shadow-lg shadow-floreria-rose/30 hover:bg-[#721b42] transition-colors mb-3"
+        id="cartBtnProceedCheckout">FINALIZAR COMPRA</button>
+      <button type="button"
+        class="w-full bg-white text-gray-500 border border-gray-200 py-3 rounded-xl font-bold text-xs tracking-wider uppercase hover:bg-gray-50 hover:text-floreria-dark transition-colors"
+        id="cartBtnClear">VACIAR CARRITO</button>
+    </div>
+  </div>
+
+  <div class="cart-sidebar-overlay fixed inset-0 bg-black/40 z-[2500] opacity-0 invisible transition-all duration-500"
+    id="cartSidebarOverlay" aria-hidden="true"></div>
+
+  <div class="order-modal fixed inset-0 z-[4000] hidden items-center justify-center bg-black/60 backdrop-blur-sm"
+    id="orderModal" aria-hidden="true">
+    <div
+      class="order-modal-content w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-6 sm:p-10 mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="order-modal-header flex justify-between items-center mb-8 border-b border-floreria-muted pb-4">
+        <h3 class="text-2xl sm:text-3xl font-title text-floreria-rose font-bold">Completar pedido</h3>
+        <button type="button"
+          class="close-btn text-gray-400 hover:text-floreria-rose text-3xl font-light w-10 h-10 flex items-center justify-center rounded-full hover:bg-floreria-cream transition-colors"
+          id="closeOrderModalBtn" aria-label="Cerrar formulario">×</button>
       </div>
 
-      <form id="orderForm" class="order-form">
+      <form id="orderForm" class="order-form space-y-6">
         <div class="field-group">
-          <label for="customerName">Nombre</label>
-          <input id="customerName" name="customerName" type="text" required minlength="2">
+          <label for="customerName"
+            class="block text-sm font-semibold tracking-wider text-floreria-dark uppercase mb-2">Nombre completo</label>
+          <input id="customerName" name="customerName" type="text" required minlength="2"
+            class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose focus:ring-0 outline-none text-floreria-dark transition-all placeholder:text-gray-400"
+            placeholder="Ej. Juan Perez">
         </div>
 
-        <div class="field-group two-cols">
-          <div>
-            <label for="phone">Telefono</label>
-            <input id="phone" name="phone" type="tel" required pattern="[0-9+]{7,15}">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="field-group">
+            <label for="phone"
+              class="block text-sm font-semibold tracking-wider text-floreria-dark uppercase mb-2">Teléfono</label>
+            <input id="phone" name="phone" type="tel" required pattern="[0-9+]{7,15}"
+              class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose focus:ring-0 outline-none text-floreria-dark transition-all placeholder:text-gray-400"
+              placeholder="Ej. 987654321">
           </div>
-          <div>
-            <label for="deliveryDate">Fecha de entrega</label>
-            <input id="deliveryDate" name="deliveryDate" type="date" required>
+          <div class="field-group">
+            <label for="deliveryDate"
+              class="block text-sm font-semibold tracking-wider text-floreria-dark uppercase mb-2">Fecha de
+              entrega</label>
+            <input id="deliveryDate" name="deliveryDate" type="date" required
+              class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose focus:ring-0 outline-none text-floreria-dark transition-all">
           </div>
         </div>
 
-        <div class="field-group two-cols">
-          <div>
-            <label for="district">Distrito</label>
-            <input id="district" name="district" type="text" required minlength="2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="field-group">
+            <label for="district"
+              class="block text-sm font-semibold tracking-wider text-floreria-dark uppercase mb-2">Distrito</label>
+            <input id="district" name="district" type="text" required minlength="2"
+              class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose focus:ring-0 outline-none text-floreria-dark transition-all placeholder:text-gray-400"
+              placeholder="Ej. Miraflores">
           </div>
-          <div>
-            <label for="address">Direccion</label>
-            <input id="address" name="address" type="text" required minlength="5">
+          <div class="field-group">
+            <label for="address"
+              class="block text-sm font-semibold tracking-wider text-floreria-dark uppercase mb-2">Dirección</label>
+            <input id="address" name="address" type="text" required minlength="5"
+              class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose focus:ring-0 outline-none text-floreria-dark transition-all placeholder:text-gray-400"
+              placeholder="Avenida, Calle, Nro.">
           </div>
         </div>
 
         <div class="field-group">
-          <label for="note">Dedicatoria (opcional)</label>
-          <textarea id="note" name="note" rows="3" placeholder="Indicaciones para entrega"></textarea>
+          <label for="note"
+            class="block text-sm font-semibold tracking-wider text-floreria-dark uppercase mb-2">Dedicatoria
+            (Opcional)</label>
+          <textarea id="note" name="note" rows="3"
+            class="w-full px-4 py-3 bg-floreria-cream border-2 border-transparent rounded-lg focus:border-floreria-rose focus:ring-0 outline-none text-floreria-dark transition-all placeholder:text-gray-400 resize-none"
+            placeholder="Escribe un mensaje especial o indicaciones para la entrega..."></textarea>
         </div>
 
-        <p id="orderStatus" class="order-status" aria-live="polite"></p>
+        <p id="orderStatus" class="order-status text-sm font-medium text-center hidden" aria-live="polite"></p>
 
-        <div class="order-actions">
-          <button type="button" class="btn-secondary" id="cancelOrderBtn">Cancelar</button>
-          <button type="submit" class="btn-main" id="submitOrderBtn">Confirmar y abrir WhatsApp</button>
+        <div
+          class="order-actions flex flex-col-reverse sm:flex-row justify-end items-center gap-4 pt-4 border-t border-floreria-muted">
+          <button type="button"
+            class="btn-secondary w-full sm:w-auto px-6 py-3 border-2 border-floreria-dark text-floreria-dark rounded-full font-bold text-sm tracking-wider uppercase hover:bg-floreria-dark hover:text-white transition-colors"
+            id="cancelOrderBtn">Cancelar</button>
+          <button type="submit"
+            class="btn-main w-full sm:w-auto px-8 py-3 bg-floreria-rose text-white rounded-full font-bold text-sm tracking-wider uppercase shadow-lg shadow-floreria-rose/30 hover:bg-floreria-rose-hover hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+            id="submitOrderBtn"><i class="fa-brands fa-whatsapp text-lg"></i> Confirmar y abrir WhatsApp</button>
         </div>
       </form>
     </div>
@@ -239,4 +394,5 @@
 
   <script src="/js/app.js" defer></script>
 </body>
+
 </html>
